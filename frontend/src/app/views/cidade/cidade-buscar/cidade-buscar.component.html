@@ -1,0 +1,40 @@
+<ngx-smart-modal #popupOne [identifier]="'cadCidade'">
+<div class="animated fadeIn">
+   <div class="row">
+      <div class="col-md-12">
+         <form [formGroup]="form" >
+            <div class="card">
+               <div class="card-header">
+                  Cadastrar Cidade      
+               </div>
+               <div class="card-body">
+                  <ng-select #select 
+                  bindLabel="nome" 
+                  [trackByFn]="trackByFn"
+                  [minTermLength]="minLengthTerm" 
+                  [loading]="cidadesLoading"
+                  typeToSearchText="Digite {{minLengthTerm}} ou mais caracteres para pesquisar" 
+                  [typeahead]="cidadesInput"
+                  [(ngModel)]="selectedCidade"
+                  notFoundText="Cidade não encontrada"
+                  clearAllText="Limpar Todos" 
+                  loadingText='Pesquisando...'
+                  formControlName="nome"
+                  >
+                     <ng-option [value]="item" [disabled]="item.disabled" *ngFor="let item of cidades | async">
+                           {{item.nome}}
+                           <i title="{{ item.pais.sigla.toLowerCase() }}" id="{{ item.pais.sigla.toLowerCase() }}" class="flag-icon flag-icon-{{ item.pais.sigla.toLowerCase() }}"></i>
+                     </ng-option>
+                  </ng-select>
+               </div>
+            </div>
+         </form>
+      </div>
+      <div class="col-md-12">
+         <button class="btn btn-success" (click)="salvarCidade()" [disabled]="!form.valid">
+            <i class="fa fa-check mr-2"></i>Salvar
+         </button>
+      </div>
+   </div>
+</div>   
+</ngx-smart-modal>
