@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Cidade } from '../model/cidade';
+import { Cidade } from '../model/Cidade';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +15,6 @@ export class CidadeResource {
     }
 
     public salvar(cidade: any): Observable<any> {
-        console.log('resource');
         return this.http.post<any>('http://localhost:8080/cidades', cidade);
     }
 

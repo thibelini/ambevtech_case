@@ -1,7 +1,10 @@
+import { Utils } from './../../../util/Utils';
+import { CidadeDTO } from '../../../model/CidadeDTO';
+import { TempoObjDTO } from './../../../model/TempoObjDTO';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FiltroDTO } from './../../../model/FiltroDTO';
 import { MensagemService } from './../../../service/mensagem.service';
-import { Cidade } from './../../../model/cidade';
+import { Cidade } from '../../../model/Cidade';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { ToastrService } from 'ngx-toastr';
@@ -9,6 +12,7 @@ import { Subject } from 'rxjs';
 
 import { CidadeService } from './../../../service/cidade.service';
 import { CidadeBuscarComponent } from './../cidade-buscar/cidade-buscar.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-cidade-listar',
@@ -27,6 +31,9 @@ export class CidadeListarComponent implements OnInit, AfterViewInit {
   public paginaSelecionada = 1;
   public totalElementos = 0;
   public formFiltro: FormGroup;
+  public abrirOverlayTempo = false;
+  public tempoObjDTO: TempoObjDTO;
+
 
   constructor(
     private cidadeService: CidadeService, 
@@ -67,7 +74,6 @@ export class CidadeListarComponent implements OnInit, AfterViewInit {
       this.FiltroDTO.page = this.paginaSelecionada - 1;
       this.cidadeService.filtrar(this.FiltroDTO).subscribe(
           (response: any) => {
-            console.log(response);
             this.cidades = response.content;
             this.totalElementos = response.totalElements;
             if (this.cidades.length === 0) this.mensagem = "Nenhuma Cidade Cadastrada!";
@@ -105,6 +111,15 @@ export class CidadeListarComponent implements OnInit, AfterViewInit {
         this.mensagemService.mostrar(erro);
       }
      )
+  }
+
+  public abrirTempo(cidade: CidadeDTO) {
+    this.tempoObjDTO = new TempoObjDTO();
+    this.tempoObjDTO.nomeCidade = cidade.nome;
+    this.tempoObjDTO.pais = cidade.pais;
+    this.tempoObjDTO.latitude = cidade.latitude;
+    this.tempoObjDTO.longitude = cidade.longitude;
+    this.abrirOverlayTempo = true;
   }
 
 }

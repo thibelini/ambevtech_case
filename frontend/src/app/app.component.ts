@@ -7,7 +7,7 @@ import { freeSet } from '@coreui/icons';
 @Component({
   // tslint:disable-next-line
   selector: 'body',
-  template: `<router-outlet></router-outlet><app-mensagem></app-mensagem>`,
+  template: `<app-loading></app-loading><router-outlet></router-outlet><app-mensagem></app-mensagem>`,
   providers: [IconSetService],
 })
 export class AppComponent implements OnInit {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CidadeResource } from '../controller/cidade-resource';
-import { Cidade } from '../model/cidade';
+import { Cidade } from '../model/Cidade';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,6 @@ constructor(private resource: CidadeResource) { }
   }
 
   public salvar(cidade: any) : Observable<any> {
-    console.log('service');
     return this.resource.salvar(cidade); 
   }
   

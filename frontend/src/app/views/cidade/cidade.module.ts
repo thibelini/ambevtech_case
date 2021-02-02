@@ -1,15 +1,15 @@
-import { NgxSmartModalModule, NgxSmartModalService } from 'ngx-smart-modal';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { ToastrModule } from 'ngx-toastr';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { NgxSmartModalModule, NgxSmartModalService } from 'ngx-smart-modal';
+import { OverlayComponent } from './../componentes/overlay/overlay.component';
 import { CidadeBuscarComponent } from './cidade-buscar/cidade-buscar.component';
 import { CidadeListarComponent } from './cidade-listar/cidade-listar.component';
 import { CidadeRoutingModule } from './cidade-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { TempoComponent } from './tempo/tempo.component';
+
 
 
 @NgModule({
@@ -26,7 +26,9 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
   providers: [ NgxSmartModalService ],
   declarations: [ 
     CidadeListarComponent, 
-    CidadeBuscarComponent 
+    CidadeBuscarComponent,
+    OverlayComponent,
+    TempoComponent
   ]
 })
 export class CidadeModule { }

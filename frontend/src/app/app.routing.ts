@@ -13,10 +13,6 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: 'dashboard',
-        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
-      },
-      {
         path: 'cidades',
         loadChildren: () => import('./views/cidade/cidade.module').then(m => m.CidadeModule)
       },

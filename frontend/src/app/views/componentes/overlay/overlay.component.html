@@ -1,0 +1,10 @@
+<div [ngClass]="{'sidenav-hidden-background': show}" (click)="close();"></div>
+<div class="sidenav" [ngClass]="{'sidenav-hidden': show, 'sidenav-50': desktop, 'sidenav-100': !desktop}">
+    <button type="button" class="mt-1 close" (click)="close();" id="closeOverlay">
+        <i class="fa fa-times-circle"></i>
+    </button>
+    <div class="h-100 sidenav-body" style="overflow-y: auto">
+        <ng-content>
+        </ng-content>
+    </div>
+</div>

@@ -1,6 +1,7 @@
+import { LoadingComponent } from './views/componentes/loading/loading.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { LocationStrategy, HashLocationStrategy, registerLocaleData } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -39,8 +40,11 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { FormBuilder } from '@angular/forms';
 import { MensagemComponent } from './views/componentes/mensagem/mensagem.component';
+import localept from '@angular/common/locales/pt';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
+registerLocaleData(localept, 'pt');
 
 
 @NgModule({
@@ -61,9 +65,11 @@ import { MensagemComponent } from './views/componentes/mensagem/mensagem.compone
     IconModule,
     IconSetModule.forRoot(),
     ToastrModule.forRoot(),
+    NgxSpinnerModule
   ],
   declarations: [
     MensagemComponent,
+    LoadingComponent,
     AppComponent,
     ...APP_CONTAINERS,
     // P404Component,
@@ -74,6 +80,10 @@ import { MensagemComponent } from './views/componentes/mensagem/mensagem.compone
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt'
+  },
     IconSetService,
   ],
   bootstrap: [ AppComponent ]
