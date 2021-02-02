@@ -11,17 +11,15 @@ import java.util.List;
 @Getter
 @Setter
 @AllArgsConstructor
-public class TempoCidadeDTO implements Serializable {
+public class TempoAtualDTO implements Serializable {
 
     private Long dt;
 
-    private TemperaturaDTO temp;
+    private BigDecimal temp;
 
     private Integer pressure;
 
     private Integer humidity;
-
-    private String rain;
 
     private List<ClimaDTO> weather;
 

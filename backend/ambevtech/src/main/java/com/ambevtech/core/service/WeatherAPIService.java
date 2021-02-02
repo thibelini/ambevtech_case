@@ -6,6 +6,7 @@ import com.ambevtech.app.util.Fn;
 import com.ambevtech.core.entity.dto.CidadeListDTO;
 import com.ambevtech.core.entity.dto.CidadeTempoDTO;
 import com.ambevtech.core.entity.dto.DadosTempoDTO;
+import com.ambevtech.core.entity.dto.TempoCidadeDTO;
 import com.ambevtech.core.service.api.WeatherAPI;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,17 +49,18 @@ public class WeatherAPIService {
     private List<CidadeTempoDTO> converteObjCidade(String listaCidades) {
         Gson gson = new Gson();
         CidadeListDTO listCidades = gson.fromJson(listaCidades, CidadeListDTO.class);
-        List<CidadeTempoDTO> cidades = listCidades.getCidades().stream()
-                .filter(Fn.distinctByKey(p -> p.getNome()) )
-                .filter(Fn.distinctByKey(s -> s.getPais().getSigla()) )
-                .collect( Collectors.toList() );
+        List<CidadeTempoDTO> cidades = listCidades.getCidades(); // .stream()
+//                .filter(Fn.distinctByKey(p -> p.getNome()) )
+//                .filter(Fn.distinctByKey(s -> s.getPais().getSigla()) )
+//                .collect( Collectors.toList() );
         return cidades;
     }
 
     private DadosTempoDTO converteObjTempo(String dados){
         Gson gsons = new Gson();
         DadosTempoDTO tempoCidade = gsons.fromJson(dados, DadosTempoDTO.class);
-        tempoCidade.getDaily().stream().limit(5).collect(Collectors.toList());
+        List<TempoCidadeDTO> cidades = tempoCidade.getDaily().stream().limit(5).collect(Collectors.toList());
+        tempoCidade.setDaily(cidades);
         return tempoCidade;
     }
 

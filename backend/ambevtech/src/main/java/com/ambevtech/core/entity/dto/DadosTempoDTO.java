@@ -12,7 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 public class DadosTempoDTO implements Serializable {
 
-//    @SerializedName("daily")
+    private TempoAtualDTO current;
+
     private List<TempoCidadeDTO> daily;
 
     private List<AlertasTempoDTO> alerts;
