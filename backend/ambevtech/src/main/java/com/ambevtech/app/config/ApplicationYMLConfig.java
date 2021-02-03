@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Map;
 
 @Configuration
-@EnableConfigurationProperties
+@ConfigurationProperties
 @Getter
 @Setter
 public class ApplicationYMLConfig {
@@ -31,6 +31,7 @@ public class ApplicationYMLConfig {
         }
 
         public void setDatasource(Map<String, String> datasource) {
+
             this.datasource = datasource;
         }
     }

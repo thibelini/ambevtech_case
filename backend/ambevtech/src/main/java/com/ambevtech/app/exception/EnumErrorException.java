@@ -42,6 +42,11 @@ public enum EnumErrorException {
             "Não foi possível cadastrar a Cidade",
             "A Cidade já esta Cadastrada"),
 
+    ERRO_INTERNO(
+            HttpStatus.INTERNAL_SERVER_ERROR,
+            "Erro",
+            "Falha ao realizar operação.",
+            ""),
     ;
 
 

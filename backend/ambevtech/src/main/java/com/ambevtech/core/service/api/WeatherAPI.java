@@ -1,12 +1,9 @@
 package com.ambevtech.core.service.api;
 
-import com.ambevtech.core.entity.dto.CidadeListDTO;
-import com.ambevtech.core.entity.dto.CidadeTempoDTO;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
-import org.json.JSONObject;
+import com.ambevtech.app.config.CacheNames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +12,6 @@ import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Lazy
 @Service
@@ -57,7 +53,6 @@ public class WeatherAPI {
     }
 
     public ResponseEntity<String> buscarDadosTempoCidade(BigDecimal latitude, BigDecimal longitude){
-
         String path = "/data/2.5/onecall?";
         try {
             StringBuilder uri = new StringBuilder();

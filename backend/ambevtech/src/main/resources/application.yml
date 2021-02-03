@@ -1,7 +1,44 @@
 spring:
+  profiles: prod
   datasource:
     url: jdbc:mysql://localhost:3306/ambevtech?createDatabaseIfNotExist=true&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&useTimezone=true&serverTimezone=America/Sao_Paulo
     database: ambevtech
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  hikari:
+    idleTimeout: 120000
+    maximumPoolSize: 10
+    minimumIdle: 2
+    data-source-properties:
+      cachePrepStmts: true
+      prepStmtCacheSize: 250
+      prepStmtCacheSqlLimit: 2048
+  jpa:
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        enable_lazy_load_no_trans: true
+
+api-externa:
+  openweather:
+    url: https://api.openweathermap.org
+    token: 9b4f2ae6330e05a3d7c1310b369da5a4
+    language: pt_br
+    units: metric
+
+---
+
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:mysql://localhost:3306/ambevtech_teste?createDatabaseIfNotExist=true&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&useTimezone=true&serverTimezone=America/Sao_Paulo
+    database: ambevtech_teste
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -21,12 +58,12 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-        format_sql: true
+        format_sql: false
         enable_lazy_load_no_trans: true
 
   config:
     activate:
-      on-profile: prod
+      on-profile: test
 logging:
   level:
     org:
@@ -43,9 +80,9 @@ api-externa:
     language: pt_br
     units: metric
 
-server:
-  port: 8080
-debug: false
+#server:
+#  port: 8080
+#debug: false
 
 #---
 #
