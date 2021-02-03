@@ -7,7 +7,6 @@ export class TempoAtualDTO {
     pressure: number;
     humidity: number;
     weather: Array<ClimaDTO>;
-    diaDaSemana: string = '';
 
     constructor(){
         this.weather = new Array<ClimaDTO>();

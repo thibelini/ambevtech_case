@@ -10,7 +10,6 @@ export class TempoCidadeDTO {
     humidity: number;
     rain: string;
     weather: Array<ClimaDTO>;
-    diaDaSemana: string = '';
 
     constructor(){
         this.temp = new TemperaturaDTO();

@@ -27,7 +27,8 @@ export class TempoComponent implements OnInit, OnChanges {
             this.dadosTempo = new DadosTempoDTO();
             this.serviceTempo.dadosTempoCidade(this.dados.latitude, this.dados.longitude).subscribe(
                (response) => {
-                  this.setDiaSemana(response);
+                  this.dadosTempo = response;
+                  console.log(response)
                },
                (erro) => {
                   this.mensagemService.aviso('Atenção', erro);
@@ -36,13 +37,4 @@ export class TempoComponent implements OnInit, OnChanges {
          }
       }
    }
-
-   public setDiaSemana(dadosTempo: DadosTempoDTO) {
-      dadosTempo.current.diaDaSemana = Utils.formataDiaSemanaTimestemp(dadosTempo.current.dt);
-      dadosTempo.daily.forEach(item => {
-         item.diaDaSemana = Utils.formataDiaSemanaTimestemp(item.dt);
-      })
-      this.dadosTempo = dadosTempo;
-   }
-
 }
