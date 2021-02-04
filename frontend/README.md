@@ -1,7 +1,5 @@
+# FrontEnd - Angular
 
-# FrontEnd - Angular S2IT
-
-## Get Started
 
 Para instalar as dependências:
 
@@ -13,6 +11,7 @@ Para rodar o projeto:
 
 Abra seu browser e acesse: `localhost:4200`
 
-# Contributors
-
--   Rádames Santiago @radames-rex
+## Telas
+- Listagem das Cidades
+- Cadastro das Cidades
+- Visualização da Previsão do Tempo
