@@ -4,7 +4,6 @@ import com.ambevtech.SpringIntegrationTest;
 import com.ambevtech.app.exception.EnumErrorException;
 import com.ambevtech.app.exception.ServiceException;
 import com.ambevtech.core.entity.Cidade;
-import com.ambevtech.core.entity.dto.CidadeDTO;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;

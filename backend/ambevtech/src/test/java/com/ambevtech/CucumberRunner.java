@@ -13,7 +13,6 @@ import org.junit.runner.RunWith;
         monochrome = true,
         snippets = SnippetType.CAMELCASE,
         dryRun = false
-//        , tags = {"@buscarCidade"}
 )
 public class CucumberRunner {
 
