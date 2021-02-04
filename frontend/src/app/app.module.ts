@@ -71,9 +71,7 @@ registerLocaleData(localept, 'pt');
     MensagemComponent,
     LoadingComponent,
     AppComponent,
-    ...APP_CONTAINERS,
-    // P404Component,
-    // P500Component
+    ...APP_CONTAINERS
   ],
   providers: [
     {

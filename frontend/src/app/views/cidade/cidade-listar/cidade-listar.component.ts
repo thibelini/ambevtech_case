@@ -1,18 +1,15 @@
-import { Utils } from './../../../util/Utils';
-import { CidadeDTO } from '../../../model/CidadeDTO';
-import { TempoObjDTO } from './../../../model/TempoObjDTO';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { FiltroDTO } from './../../../model/FiltroDTO';
-import { MensagemService } from './../../../service/mensagem.service';
-import { Cidade } from '../../../model/Cidade';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgxSmartModalService } from 'ngx-smart-modal';
-import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
-
+import { Cidade } from '../../../model/Cidade';
+import { CidadeDTO } from '../../../model/CidadeDTO';
+import { FiltroDTO } from './../../../model/FiltroDTO';
+import { TempoObjDTO } from './../../../model/TempoObjDTO';
 import { CidadeService } from './../../../service/cidade.service';
+import { MensagemService } from './../../../service/mensagem.service';
 import { CidadeBuscarComponent } from './../cidade-buscar/cidade-buscar.component';
-import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-cidade-listar',

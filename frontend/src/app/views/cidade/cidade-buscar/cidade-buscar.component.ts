@@ -1,12 +1,10 @@
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Component, ElementRef, EventEmitter, OnInit, Output, TemplateRef, ViewChild, AfterViewInit } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { WeatherService } from '../../../service/weather.service';
-import { CidadeService } from '../../../service/cidade.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { concat, Observable, of, Subject } from 'rxjs';
 import { catchError, debounceTime, distinctUntilChanged, filter, map, switchMap, tap } from 'rxjs/operators';
-import { ToastrService } from 'ngx-toastr';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CidadeService } from '../../../service/cidade.service';
+import { WeatherService } from '../../../service/weather.service';
 
 @Component({
   selector: 'app-cidade-buscar',

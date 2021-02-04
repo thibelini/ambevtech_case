@@ -11,7 +11,6 @@ import { CidadeRoutingModule } from './cidade-routing.module';
 import { TempoComponent } from './tempo/tempo.component';
 
 
-
 @NgModule({
   imports: [
     FormsModule,
