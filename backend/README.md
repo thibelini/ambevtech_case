@@ -21,4 +21,4 @@
 - Foram criados 2 testes. Teste de Cadastro de Cidade e teste de busca da cidade na API externa.
 
 ## Documentação da API - Swagger
-Abra seu browser e acesse: http://localhost:8080/swagger-ui.html
+Abra seu browser e acesse: `http://localhost:8080/swagger-ui.html`
