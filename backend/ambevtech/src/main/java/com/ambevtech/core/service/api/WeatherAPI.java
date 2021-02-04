@@ -1,9 +1,10 @@
 package com.ambevtech.core.service.api;
 
-import com.ambevtech.app.config.CacheNames;
+import com.ambevtech.core.service.WeatherAPIService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,8 @@ public class WeatherAPI {
     @Autowired
     private RestTemplate restTemplate;
 
+    private final Logger logger = LoggerFactory.getLogger(WeatherAPIService.class);
+
     public ResponseEntity<String> buscarCidade(String nomeCidade){
         String path = "/data/2.5/find?";
         try {
@@ -44,6 +47,7 @@ public class WeatherAPI {
                     .append("&lang="+ language)
                     .append("&units="+ units);
             ResponseEntity<String> response = restTemplate.getForEntity(uri.toString(), String.class);
+            logger.info("Dados recebidos contendo as cidades da API da OpenWeatherApi: "+ response);
             return response;
         } catch (HttpStatusCodeException ex) {
             return new ResponseEntity<String>(ex.getResponseBodyAsString(), ex.getResponseHeaders(), ex.getStatusCode());
@@ -65,6 +69,7 @@ public class WeatherAPI {
                     .append("&lang="+ language)
                     .append("&units="+ units);
             ResponseEntity<String> response = restTemplate.getForEntity(uri.toString(), String.class);
+            logger.info("Dados recebidos contendo a previsão do tempo da API da OpenWeatherApi: "+ response);
             return response;
         } catch (HttpStatusCodeException ex) {
             return new ResponseEntity<String>(ex.getResponseBodyAsString(), ex.getResponseHeaders(), ex.getStatusCode());

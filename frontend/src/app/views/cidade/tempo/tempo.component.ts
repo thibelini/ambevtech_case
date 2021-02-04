@@ -23,7 +23,7 @@ export class TempoComponent implements OnInit, OnChanges {
 
    ngOnChanges(changes: SimpleChanges): void {
       if (changes) {
-         if (changes.abrirTempo && this.abrirTempo) {
+         if (changes.abrirTempo && this.abrirTempo === true) {
             this.dadosTempo = new DadosTempoDTO();
             this.serviceTempo.dadosTempoCidade(this.dados.latitude, this.dados.longitude).subscribe(
                (response) => {

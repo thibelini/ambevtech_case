@@ -2,6 +2,7 @@ package com.ambevtech.core.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @Table(name = "cidade")
 @Getter
 @Setter
+@ToString
 public class Cidade implements Serializable {
 
     @Id

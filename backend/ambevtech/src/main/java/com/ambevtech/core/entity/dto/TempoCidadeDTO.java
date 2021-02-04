@@ -3,14 +3,15 @@ package com.ambevtech.core.entity.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@ToString
 public class TempoCidadeDTO implements Serializable {
 
     private Long dt;
