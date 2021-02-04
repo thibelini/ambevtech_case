@@ -15,3 +15,9 @@ Abra seu browser e acesse: `localhost:4200`
 - Listagem das Cidades
 - Cadastro das Cidades
 - Visualização da Previsão do Tempo
+
+## Tecnologias
+- Typescript
+- Javascript
+- HTML
+- CSS
